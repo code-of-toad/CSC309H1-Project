@@ -1,8 +1,4 @@
-// Use VITE_BACKEND_URL (Railway) or VITE_BASE_URL (local dev), with fallback to localhost for dev
-export const BASE_URL = 
-    import.meta.env.VITE_BACKEND_URL || 
-    import.meta.env.VITE_BASE_URL || 
-    (import.meta.env.DEV ? 'http://localhost:8000' : '');
+export const BASE_URL = import.meta.env.VITE_BASE_URL;
 export const ROLE_RANK = {
     regular: 1,
     cashier: 2,
