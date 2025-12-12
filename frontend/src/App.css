@@ -1,0 +1,30 @@
+:root {
+    /* --color-sidebar: #202652; */
+    --color-header: #26425d;
+    --color-footer: #26425d;
+    --color-background: #cacfd6;
+    --color-1: #a6b1e1;
+    --color-2: #dcd6f7;
+    --color-3: #d6e5e3;
+
+    --color-sidebar: #1E2A38;    
+    /* --color-header:  #243447;     slightly lighter navy */
+    /* --color-footer:  #243447; */
+
+    --color-text-light: #F5F7FA;   /* clean white-grey */
+    --color-text-muted: #C8D1DA;   /* subtle muted */
+    --color-heading:     #1B1F24;  /* ink black */
+
+    --color-main-bg: #F4F6F8;      /* modern SaaS grey */
+
+    --color-card-bg: #FFFFFF;
+    --color-card-shadow: rgba(0, 0, 0, 0.06);
+
+    --color-accent: #3B82F6;       /* modern blue */
+    --color-accent-hover: #2563EB;
+
+}
+
+body {
+    background-color: var(--color-background);
+}

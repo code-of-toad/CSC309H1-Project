@@ -1,0 +1,52 @@
+.event-edit-container {
+    padding: 20px;
+}
+
+.edit-form {
+    max-width: 600px;
+    padding: 20px;
+    background: #f4f4f8;
+    border-radius: 8px;
+}
+
+.edit-form label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+.edit-form input,
+.edit-form textarea,
+.edit-form select {
+    width: 100%;
+    margin-top: 4px;
+    padding: 8px;
+}
+
+.save-btn {
+    margin-top: 20px;
+    padding: 10px 16px;
+    background: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+.delete-btn {
+    margin-top: 12px;
+    padding: 10px 16px;
+    background: #cc0000;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+.success-message {
+    color: green;
+    margin-top: 10px;
+}

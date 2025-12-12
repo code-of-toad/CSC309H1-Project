@@ -1,0 +1,65 @@
+/* src/pages/EventsList.css */
+
+.events-container {
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.filters-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.filters-row input,
+.filters-row select {
+    padding: 6px 10px;
+    font-size: 14px;
+}
+
+.events-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: white;
+}
+
+.events-table th,
+.events-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+.events-table th {
+    background: #f0f0f0;
+    text-align: left;
+}
+
+.clickable-row {
+    cursor: pointer;
+}
+
+.clickable-row:hover {
+    background: #eef4ff;
+}
+
+.pagination-row {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}

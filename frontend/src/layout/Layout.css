@@ -1,0 +1,134 @@
+.layout-container {
+    display: flex;
+    height: 100vh;
+}
+.sidebar {
+    width: 240px;
+    background: var(--color-sidebar);
+    color: var(--color-text-light);
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.sidebar h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--color-3);
+    letter-spacing: 0.3px;
+}
+
+.sidebar ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.sidebar li {
+    list-style: none;
+}
+
+.sidebar a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    color: var(--color-3);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: background 0.15s ease, padding-left 0.15s ease;
+}
+
+/* Hover effect */
+.sidebar a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 1rem;
+}
+
+/* Active route appearance (optional if using NavLink later) */
+.sidebar a.active {
+    background: rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+}
+
+.sidebar ul,
+.sidebar ol,
+.sidebar a {
+    list-style-type: none;
+    text-decoration: none;
+    color: inherit;
+}
+
+.layout-right {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.header {
+    background: var(--color-header);
+    color: var(--color-3);
+    padding: 0.85rem 1.25rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+/* Right-side container */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Logout button upgrade */
+.logout-button {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--color-3);
+    border: none;
+    padding: 0.45rem 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.logout-button:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.logout-button:active {
+    transform: scale(0.96);
+}
+
+
+.layout-main {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.footer {
+    background: var(--color-footer);
+    color: var(--color-3);
+    padding: 0.8rem 1rem;
+
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}

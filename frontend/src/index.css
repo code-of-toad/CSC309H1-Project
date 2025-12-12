@@ -1,0 +1,112 @@
+/**
+ * Remove default margins
+ * ----------------------
+ * Removes unpredictable default margins (especially on `body`, `h1`, `p`).
+ * This gives you a clean slate so your spacing rules define the layout.
+ *
+ * React components become consistent -- no surprise gaps at the top of pages
+ * or between elements.
+ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/**
+ * Improve text rendering
+ * ----------------------
+ * `line-height: 1.5` provides better readability and typographic consistency
+ * across browsers. Most modern design systems assume a 1.5-ish line height.
+ *
+ * `webkit-font-smoothing: antialiased` provides sharper, smoother text on
+ * macOS and iOS browsers.
+ */
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-family: system-ui, sans-serif;
+    background-color: #fff;
+}
+
+/**
+ * Allow percentage-based heights
+ * ------------------------------
+ * Makes full-height layouts work correctly.
+ *
+ * For example:
+ *   - Sticky footers
+ *   - Full-screen hero components
+ *   - Layout grid stretches properly
+ *
+ * Without this, `height: 100%` often collapses or doesn't work as intended.
+ */
+html, body {
+    height: 100%;
+}
+/**
+ * Specifically for React apps.
+ * Without this, a full-page grid/flex layout sometimes collapses in the
+ * root wrapper.
+ */
+#root {
+    height: 100%;
+}
+
+/**
+ * Modern UX enhancement
+ * ---------------------
+ * `scroll-behavior` adds modern UX for anchor jumps and programmatic scrolls.
+ */
+html {
+    scroll-behavior: smooth;
+}
+
+/**
+ * Improve media default styles
+ * ----------------------------
+ * `display: block` removes the tiny white gap caused by images being inline
+ * elements.
+ *
+ * `max-width: 100%` ensures media elements scale inside their containers.
+ *
+ * This prevents:
+ *   - Layout overflow
+ *   - Images sticking out of React cards
+ *   - Weird inline spacing issues
+ * 
+ * Especially useful for responsive UI.
+ */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+/**
+ * Form elements inherit fonts
+ * ---------------------------
+ * Ensures that form elements inherit the app's font instead of using
+ * browser defaults.
+ *
+ * Otherwise, you often get mismatched fonts on:
+ *   - buttons
+ *   - inputs
+ *   - selects
+ * ... which would create UI inconsistency. With this rule, everything matches
+ * out of the box.
+ */
+input, button, textarea, select {
+    font: inherit;
+}
+
+/**
+ * Prevent text overflow
+ * ---------------------
+ * `overflow-wrap` prevents long words/strings (e.g., URLs, long names,
+ * AI-generated text, etc.) from breaking boxes.
+ */
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}

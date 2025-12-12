@@ -1,0 +1,56 @@
+.redemption-container {
+    padding: 20px;
+}
+
+.redemption-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 350px;
+}
+
+.redemption-form label {
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+}
+
+.redemption-form input {
+    margin-top: 5px;
+    padding: 6px 10px;
+    font-size: 14px;
+}
+
+.redemption-form button {
+    margin-top: 10px;
+    padding: 8px 14px;
+    background: #202652;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.redemption-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.error-message {
+    margin-top: 10px;
+    color: red;
+    font-weight: bold;
+}
+
+.success-box {
+    margin-top: 18px;
+    padding: 12px;
+    background: #e7fbe7;
+    border: 1px solid #5cb85c;
+    border-radius: 4px;
+}
+
+.success-box h2 {
+    margin-top: 0;
+    color: #3c763d;
+}

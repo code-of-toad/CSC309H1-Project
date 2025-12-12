@@ -1,0 +1,26 @@
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.test-container {
+    background-color: rgb(255, 224, 177);
+    border: 5px solid black;
+    padding: 3rem;
+    width: max(60vw);
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.error-msg {
+    color: red;
+}
+
+button {
+    align-self: center;
+    padding: 2px 8px;
+}

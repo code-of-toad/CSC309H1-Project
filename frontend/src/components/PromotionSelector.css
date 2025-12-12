@@ -1,0 +1,26 @@
+.promotion-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 6px;
+}
+
+.promo-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.promo-table th,
+.promo-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.promo-pagination {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}

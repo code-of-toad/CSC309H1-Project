@@ -1,0 +1,5 @@
+I have used ChatGTP 5 to assist with conceptual understanding
+and some coding with respect to new libraries, codes, and practices.
+
+The link below is a PDF of my ChatGPT prompts:
+<insert-link>

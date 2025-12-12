@@ -1,0 +1,140 @@
+.transactions-container {
+    padding: 20px;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 1rem;
+}
+
+/* ---------------- FILTER BAR ---------------- */
+.filters-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.filters-row input,
+.filters-row select {
+    padding: 6px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* ---------------- TABLE ---------------- */
+.transactions-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.transactions-table th {
+    background: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+}
+
+.transactions-table td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Row hover + clickable behavior */
+.clickable-row {
+    cursor: pointer;
+}
+
+.clickable-row:hover {
+    background-color: #f9fafc;
+}
+
+/* ---------------- SUSPICIOUS BUTTON ---------------- */
+.sus-btn {
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Suspicious = red */
+.sus-true {
+    background-color: #ff4d4f;
+    color: white;
+}
+
+/* Not suspicious = green */
+.sus-false {
+    background-color: #4caf50;
+    color: white;
+}
+
+/* Button hover (mild) */
+.sus-btn:hover {
+    opacity: 0.9;
+}
+
+/* ---------------- PAGINATION ---------------- */
+.pagination-row {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.pagination-row button,
+.pagination-row select {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+}
+
+.pagination-row button {
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.pagination-row button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.process-box {
+    margin-top: 15px;
+    padding: 12px;
+    border-left: 4px solid #4f46e5; /* indigo accent */
+    background: #f5f6ff;
+    border-radius: 6px;
+}
+
+.process-btn {
+    background-color: #4f46e5;       /* Indigo */
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.process-btn:hover {
+    background-color: #4338ca;      /* Darker indigo */
+    transform: translateY(-1px);
+}
+
+.process-btn:disabled {
+    background-color: #a5b4fc;     /* Muted indigo */
+    cursor: not-allowed;
+    transform: none;
+}
+
+.process-box .error-message {
+    margin-top: 8px;
+}

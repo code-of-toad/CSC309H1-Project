@@ -1,0 +1,25 @@
+.adjustment-panel {
+    margin-top: 30px;
+    padding: 15px;
+    background: #fafafa;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.adjustment-panel input {
+    margin-bottom: 8px;
+    display: block;
+}
+
+.promo-list {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.success-msg {
+    color: green;
+}
+.error-msg {
+    color: red;
+}

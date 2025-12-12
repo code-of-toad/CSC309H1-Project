@@ -1,0 +1,79 @@
+.my-trx-container {
+    padding: 20px;
+}
+
+.my-trx-container h1 {
+    margin-bottom: 16px;
+}
+
+/* ---------------- FILTER ROW ---------------- */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.filters select,
+.filters input {
+    padding: 6px 10px;
+    font-size: 14px;
+}
+
+/* ---------------- TABLE ---------------- */
+.trx-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.trx-table th,
+.trx-table td {
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    text-align: left;
+}
+
+/* Header */
+.trx-table th {
+    background: #f0f0f0;
+    font-weight: 600;
+}
+
+/* Regular row – NOT clickable */
+.trx-table tr {
+    background: #fff;
+}
+
+/* No hover highlight */
+.trx-table tr:hover {
+    background: #fff;   /* No change */
+}
+
+/* No pointer cursor */
+.trx-table tr td {
+    cursor: default;
+}
+
+/* Error message */
+.error-message {
+    color: red;
+    font-weight: bold;
+    padding: 8px;
+}
+
+/* ---------------- PAGINATION ---------------- */
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.pagination button {
+    padding: 6px 12px;
+}
+
+.pagination select {
+    padding: 6px 10px;
+}

@@ -1,0 +1,57 @@
+.event-basic-container {
+    background: #f4f6fb;
+    padding: 24px;
+    border-radius: 8px;
+    max-width: 720px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+.top-guest-list {
+    margin: 6px 0 14px 0;
+    padding-left: 20px;
+}
+
+.top-guest-list li {
+    margin-bottom: 4px;
+}
+
+/* RSVP Buttons */
+.rsvp-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.unrsvp-btn {
+    background: #d9534f;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.rsvp-btn:hover {
+    background: #218838;
+}
+
+.unrsvp-btn:hover {
+    background: #c82333;
+}
+
+/* Form messages */
+.form-message.success {
+    color: #28a745;
+    margin-top: 8px;
+}
+
+.form-message.error {
+    color: #d9534f;
+    margin-top: 8px;
+}

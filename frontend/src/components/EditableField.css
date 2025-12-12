@@ -1,0 +1,32 @@
+.editable-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.edit-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* clickable text instead of buttons */
+.edit-text,
+.save-text,
+.cancel-text {
+    color: #3b82f6; /* blue-500 */
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.9rem;
+}
+
+.edit-text:hover,
+.save-text:hover,
+.cancel-text:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: red;
+    margin-left: 10px;
+}

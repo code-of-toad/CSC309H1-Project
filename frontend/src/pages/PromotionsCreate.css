@@ -1,0 +1,57 @@
+.promo-create-container {
+    background: #f7f8fc;
+    padding: 24px 32px;
+    border-radius: 10px;
+    max-width: 650px;
+    margin: auto;
+}
+
+.promo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.promo-form input,
+.promo-form textarea,
+.promo-form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+textarea {
+    min-height: 70px;
+    resize: vertical;
+}
+
+.create-btn {
+    margin-top: 16px;
+    padding: 12px 20px;
+    background: #006cff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.create-btn:hover {
+    background: #0056cc;
+}
+
+.form-message {
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.form-message.success {
+    background: #d4f8d4;
+    color: #0a7a0a;
+}
+
+.form-message.error {
+    background: #ffd6d6;
+    color: #b40000;
+}
