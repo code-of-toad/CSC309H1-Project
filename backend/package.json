@@ -6,7 +6,8 @@
     "scripts": {
         "createsuperuser": "node prisma/createsu.js",
         "clean": "rm -rf prisma/dev.db* node_modules package-lock.json prisma/migrations/",
-        "start": "nodemon ./src/index.js 8000",
+        "start": "node ./src/index.js",
+        "dev": "nodemon ./src/index.js 8000",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "format": "prettier . --write"
