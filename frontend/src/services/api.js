@@ -35,19 +35,11 @@ export async function api(path, options = {}) {
             ? body
             : JSON.stringify(body);
 
-    // Validate BASE_URL before making request
-    if (!BASE_URL) {
-        throw new Error('BASE_URL is not configured. Set VITE_BASE_URL environment variable.');
-    }
-
-    const url = `${BASE_URL}${path}`;
-    
     // Send request
-    const res = await fetch(url, {
+    const res = await fetch(`${BASE_URL}${path}`, {
         method,
         headers: finalHeaders,
         body: finalBody,
-        credentials: 'include',
         ...rest,
     });
 
@@ -72,6 +64,3 @@ export async function api(path, options = {}) {
 
     return data;
 }
-    return data;
-}
-(err) {
