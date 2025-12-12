@@ -80,8 +80,13 @@ async function issueJwt(req, res) {
         return;
     } catch (err) {
         // Internal server error
-        console.error(err);
-        res.status(500).json({ error: 'Internal server error' });
+        console.error('Error in issueJwt:', err);
+        console.error('Error stack:', err.stack);
+        console.error('JWT_SECRET exists:', !!JWT_SECRET);
+        res.status(500).json({ 
+            error: 'Internal server error',
+            message: process.env.NODE_ENV === 'development' ? err.message : undefined
+        });
         return;
     }
 }
