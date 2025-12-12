@@ -1,4 +1,11 @@
+// BASE_URL should be set via VITE_BASE_URL environment variable
+// In development: http://localhost:8000
+// In production (Railway): your Railway backend URL (e.g., https://your-backend.railway.app)
 export const BASE_URL = import.meta.env.VITE_BASE_URL;
+
+if (!BASE_URL && import.meta.env.PROD) {
+    console.error('VITE_BASE_URL is not set! API requests will fail.');
+}
 export const ROLE_RANK = {
     regular: 1,
     cashier: 2,
