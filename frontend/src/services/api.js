@@ -40,6 +40,7 @@ export async function api(path, options = {}) {
         method,
         headers: finalHeaders,
         body: finalBody,
+        credentials: 'include',
         ...rest,
     });
 
@@ -47,7 +48,9 @@ export async function api(path, options = {}) {
     let data = null;
     try {
         data = await res.json();
-    } catch (err) {}
+    } catch {
+        // Response is not JSON, data remains null
+    }
 
     // If not OK → throw standardized error
     if (!res.ok) {
