@@ -1,4 +1,6 @@
-export const BASE_URL = import.meta.env.VITE_BASE_URL;
+// Support both VITE_BACKEND_URL (Railway) and VITE_BASE_URL (legacy/local)
+// Fallback to localhost for local development
+export const BASE_URL = import.meta.env.VITE_BACKEND_URL || import.meta.env.VITE_BASE_URL || 'http://localhost:8000';
 export const ROLE_RANK = {
     regular: 1,
     cashier: 2,

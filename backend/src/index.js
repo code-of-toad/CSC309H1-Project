@@ -12,8 +12,29 @@ const cors = require('cors');
 const express = require('express');
 const app = express();
 
+// CORS configuration: allow both local development and production origins
 const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
-app.use(cors({ origin: FRONTEND_URL }));
+const allowedOrigins = [
+    FRONTEND_URL,
+    'http://localhost:5173', // Local development
+];
+
+// Remove duplicates
+const uniqueOrigins = [...new Set(allowedOrigins)];
+
+app.use(cors({
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
+        
+        if (uniqueOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true,
+}));
 // Middleware
 app.use(express.json());
 app.use('/auth', authRouter);
