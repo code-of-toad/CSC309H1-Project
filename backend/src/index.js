@@ -12,10 +12,8 @@ const cors = require('cors');
 const express = require('express');
 const app = express();
 
-app.use(cors({
-    origin: 'http://localhost:5173',
-    credentials: true,
-}));
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
+app.use(cors({ origin: FRONTEND_URL }));
 // Middleware
 app.use(express.json());
 app.use('/auth', authRouter);
@@ -27,18 +25,17 @@ app.use('/debugging', debuggingRouter);
 
 // ----------------------------------------------------------------------------
 // Start server
-const port = (() => {
+const port = process.env.PORT || (() => {
+    // Fallback for local development: check command-line argument
     const args = process.argv;
-    if (args.length !== 3) {
-        console.error('usage: node index.js port');
-        process.exit(1);
+    if (args.length === 3) {
+        const num = parseInt(args[2], 10);
+        if (!isNaN(num)) {
+            return num;
+        }
     }
-    const num = parseInt(args[2], 10);
-    if (isNaN(num)) {
-        console.error('error: argument must be an integer.');
-        process.exit(1);
-    }
-    return num;
+    // Default port if neither env var nor arg provided
+    return 8000;
 })();
 
 const server = app.listen(port, () => {
