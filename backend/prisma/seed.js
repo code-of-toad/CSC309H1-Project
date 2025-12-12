@@ -89,86 +89,89 @@ async function createRegularUser(name, utorid, email, password, verified, suspic
 }
 
 async function main() {
-    await createSuperuser(
-        'Flynn White', // name
-        'flynnw7', // utorid
-        'flynn.white@mail.utoronto.ca', // email
-        'Abcdef1!', // password
-        true, // verified
-        false, // suspicious
-    );
-    await createManager(
-        'Peter Parker', // name
-        'parker7', // utorid
-        'sp0derman@mail.utoronto.ca', // email
-        'Abcdef1!', // password
-        true, // verified
-        false, // suspicious
-    );
-    await createManager(
-        'Goblin Junior', // name
-        'osborne7', // utorid
-        'gonna.cry@mail.utoronto.ca', // email
-        'Abcdef1!', // password
-        true, // verified
-        true, // suspicious
-    );
-    await createCashier(
-        'Tyler, the Cashier', // name
-        'goblin7', // utorid
-        'cashier.tyler@mail.utoronto.ca', // email
-        'Abcdef1!', // password
-        true, // verified
-        false, // suspicious
-    );
-    await createCashier(
-        'McLovin', // name
-        'mclovin7', // utorid
-        'hawaiian.organ.donor@mail.utoronto.ca', // email
-        'Abcdef1!', // password
-        true, // verified
-        true, // suspicious
-    );
-    await createRegularUser(
-        'Gustavo Fring', // name
-        'gusfring', // utorid
-        'pollos.hermanos@mail.utoronto.ca', // email
-        'Abcdef1!', // password
-        true, // verified
-        false, // suspicious
-    );
-    await createRegularUser(
-        'Walter White', // name
-        'walterw7', // utorid
-        'walter.white@mail.utoronto.ca', // email
-        'Abcdef1!', // password
-        true, // verified
-        false, // suspicious
-    );
-    await createRegularUser(
-        'Jesse Pinkman', // name
-        'cptncook', // utorid
-        'swed420@mail.utoronto.ca', // email
-        'Abcdef1!', // password
-        true, // verified
-        false, // suspicious
-    );
-    await createRegularUser(
-        'Suspicious Lickity', // name
-        'lickity7', // utorid
-        'sus.lickity@mail.utoronto.ca', // email
-        'Abcdef1!', // password
-        true, // verified
-        true, // suspicious
-    );
-    await createRegularUser(
-        'Unverified User', // name
-        'unverif', // utorid
-        'unverified.user@mail.utoronto.ca', // email
-        'Abcdef1!', // password
-        false, // verified
-        false, // suspicious
-    );
+    // await createSuperuser(
+    //     'Flynn White', // name
+    //     'flynnw7', // utorid
+    //     'flynn.white@mail.utoronto.ca', // email
+    //     'Abcdef1!', // password
+    //     true, // verified
+    //     false, // suspicious
+    // );
+    // await createManager(
+    //     'Peter Parker', // name
+    //     'parker7', // utorid
+    //     'sp0derman@mail.utoronto.ca', // email
+    //     'Abcdef1!', // password
+    //     true, // verified
+    //     false, // suspicious
+    // );
+    // await createManager(
+    //     'Goblin Junior', // name
+    //     'osborne7', // utorid
+    //     'gonna.cry@mail.utoronto.ca', // email
+    //     'Abcdef1!', // password
+    //     true, // verified
+    //     true, // suspicious
+    // );
+    // await createCashier(
+    //     'Tyler, the Cashier', // name
+    //     'goblin7', // utorid
+    //     'cashier.tyler@mail.utoronto.ca', // email
+    //     'Abcdef1!', // password
+    //     true, // verified
+    //     false, // suspicious
+    // );
+    // await createCashier(
+    //     'McLovin', // name
+    //     'mclovin7', // utorid
+    //     'hawaiian.organ.donor@mail.utoronto.ca', // email
+    //     'Abcdef1!', // password
+    //     true, // verified
+    //     true, // suspicious
+    // );
+    // await createRegularUser(
+    //     'Gustavo Fring', // name
+    //     'gusfring', // utorid
+    //     'pollos.hermanos@mail.utoronto.ca', // email
+    //     'Abcdef1!', // password
+    //     true, // verified
+    //     false, // suspicious
+    // );
+    // await createRegularUser(
+    //     'Walter White', // name
+    //     'walterw7', // utorid
+    //     'walter.white@mail.utoronto.ca', // email
+    //     'Abcdef1!', // password
+    //     true, // verified
+    //     false, // suspicious
+    // );
+    // await createRegularUser(
+    //     'Jesse Pinkman', // name
+    //     'cptncook', // utorid
+    //     'swed420@mail.utoronto.ca', // email
+    //     'Abcdef1!', // password
+    //     true, // verified
+    //     false, // suspicious
+    // );
+    // await createRegularUser(
+    //     'Suspicious Lickity', // name
+    //     'lickity7', // utorid
+    //     'sus.lickity@mail.utoronto.ca', // email
+    //     'Abcdef1!', // password
+    //     true, // verified
+    //     true, // suspicious
+    // );
+
+    for (let i = 0; i < 7; i++) {
+        await createRegularUser(
+            `Generic User ${i + 1}`, // name
+            `generic${i + 1}`, // utorid
+            `generic.user${i + 1}@mail.utoronto.ca`, // email
+            'Abcdef1!', // password
+            true, // verified
+            false, // suspicious
+        );
+    }
 }
 
 main()

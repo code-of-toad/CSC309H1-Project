@@ -11,7 +11,7 @@ function TransactionPurchase() {
 
     const [promotions, setPromotions] = useState([]);
     const [promoPage, setPromoPage] = useState(1);
-    const [promoLimit, setPromoLimit] = useState(10);
+    const [promoLimit, setPromoLimit] = useState(5);
     const [promoCount, setPromoCount] = useState(0);
 
     const [selectedPromos, setSelectedPromos] = useState([]);

@@ -85,15 +85,6 @@ function Profile() {
         <div className="profile-container">
             <h1>Your Profile</h1>
 
-            {/* AVATAR */}
-            <div className="avatar-section">
-                {me.avatarUrl ? (
-                    <img src={me.avatarUrl} alt="Avatar" className="profile-avatar" />
-                ) : (
-                    <div className="avatar-placeholder">No Avatar</div>
-                )}
-            </div>
-
             {/* GENERAL INFORMATION */}
             <section className="profile-section">
                 <h2>General Info</h2>
@@ -170,7 +161,7 @@ function Profile() {
 
             {/* PROMOTIONS */}
             <section className="profile-section">
-                <h2>Your Promotions</h2>
+                <h2>Promotions</h2>
                 {me.promotions.length === 0 ? (
                     <p>No active promotions.</p>
                 ) : (

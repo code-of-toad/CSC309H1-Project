@@ -8,7 +8,7 @@ function PromotionSelector({ selectedIds, setSelectedIds }) {
     const [promos, setPromos] = useState([]);
     const [count, setCount] = useState(0);
     const [page, setPage] = useState(1);
-    const [limit, setLimit] = useState(10);
+    const [limit, setLimit] = useState(5);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -103,6 +103,7 @@ function PromotionSelector({ selectedIds, setSelectedIds }) {
                             value={limit}
                             onChange={(e) => setLimit(Number(e.target.value))}
                         >
+                            <option value={5}>5 per page</option>
                             <option value={10}>10 per page</option>
                             <option value={20}>20 per page</option>
                             <option value={50}>50 per page</option>

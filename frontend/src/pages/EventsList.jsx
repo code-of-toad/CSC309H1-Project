@@ -20,7 +20,7 @@ function EventsList() {
         showFull: '',
         published: '', // only used by manager+
         page: 1,
-        limit: 10
+        limit: 5
     });
 
     const [count, setCount] = useState(0);
@@ -233,6 +233,7 @@ function EventsList() {
                     value={filters.limit}
                     onChange={e => update('limit', Number(e.target.value))}
                 >
+                    <option value={5}>5 per page</option>
                     <option value={10}>10 per page</option>
                     <option value={20}>20 per page</option>
                     <option value={50}>50 per page</option>
