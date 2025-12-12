@@ -3,8 +3,19 @@
 // In production (Railway): your Railway backend URL (e.g., https://your-backend.railway.app)
 export const BASE_URL = import.meta.env.VITE_BASE_URL;
 
-if (!BASE_URL && import.meta.env.PROD) {
-    console.error('VITE_BASE_URL is not set! API requests will fail.');
+// Runtime checks for misconfiguration
+if (import.meta.env.PROD) {
+    if (!BASE_URL) {
+        console.error('❌ VITE_BASE_URL is not set! API requests will fail.');
+        console.error('   Set VITE_BASE_URL in Railway to your backend URL (e.g., https://your-backend.railway.app)');
+    } else if (BASE_URL.includes('localhost')) {
+        console.error('❌ VITE_BASE_URL is set to localhost in production!');
+        console.error(`   Current value: ${BASE_URL}`);
+        console.error('   Set VITE_BASE_URL in Railway to your backend URL (e.g., https://your-backend.railway.app)');
+        console.error('   Note: You must rebuild/redeploy after setting the variable.');
+    } else {
+        console.log('✅ BASE_URL configured:', BASE_URL);
+    }
 }
 export const ROLE_RANK = {
     regular: 1,
