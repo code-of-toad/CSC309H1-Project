@@ -13,11 +13,22 @@ const express = require('express');
 const app = express();
 
 // app.use(cors({
-//     origin: 'http://localhost:5173',
+//     origin: process.env.FRONTEND_URL ?? 'http://localhost:5173',
 //     credentials: true,
 // }));
+const allowedOrigins = [
+    'http://localhost:5173',
+    process.env.FRONTEND_URL,
+].filter(Boolean);
+
 app.use(cors({
-    origin: process.env.FRONTEND_URL ?? 'http://localhost:5173',
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     credentials: true,
 }));
 // Middleware
@@ -31,6 +42,7 @@ app.use('/debugging', debuggingRouter);
 
 // ----------------------------------------------------------------------------
 // Start server
+// ----------------------------------------------------------------------------
 const port =
     process.env.PORT ??
     (process.argv[2] ? parseInt(process.argv[2], 10) : 8000);
@@ -39,28 +51,6 @@ if (Number.isNaN(port)) {
     console.error('Invalid port');
     process.exit(1);
 }
-
-const server = app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-});
-
-// app.use(cors({
-//     origin: process.env.FRONTEND_URL ?? 'http://localhost:5173',
-//     credentials: true,
-// }));
-// const port = (() => {
-//     const args = process.argv;
-//     if (args.length !== 3) {
-//         console.error('usage: node index.js port');
-//         process.exit(1);
-//     }
-//     const num = parseInt(args[2], 10);
-//     if (isNaN(num)) {
-//         console.error('error: argument must be an integer.');
-//         process.exit(1);
-//     }
-//     return num;
-// })();
 
 const server = app.listen(port, () => {
     console.log(`Server running on port ${port}`);
