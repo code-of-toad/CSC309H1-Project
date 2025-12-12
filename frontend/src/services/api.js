@@ -40,6 +40,7 @@ export async function api(path, options = {}) {
         method,
         headers: finalHeaders,
         body: finalBody,
+        credentials: 'include',
         ...rest,
     });
 
