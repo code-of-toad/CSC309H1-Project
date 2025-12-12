@@ -1,6 +1,266 @@
-# This text file should explain how to deploy your website.
+Documentation
+=============
 
-# You should write detailed description on:
+1. INSTALL
+----------
 
-# 1. All the packages you need to install
-# 2. How to configure various servers (e.g., Nginx, Apache, etc)
+This document provides detailed instructions for setting up and deploying the CSSU Reward System website in a new environment.
+
+a. Prerequisite Packages to Install
+------------------------------------
+
+The following software packages are required:
+
+1. **Node.js** (version 18 or higher recommended)
+   - Download and install from https://nodejs.org/
+   - Verify installation: `node --version` and `npm --version`
+
+2. **npm** (comes with Node.js)
+   - Used for installing JavaScript dependencies
+
+3. **SQLite3** (for database)
+   - Usually comes pre-installed on most systems
+   - On Ubuntu/Debian: `sudo apt-get install sqlite3`
+   - On macOS: Usually pre-installed
+   - On Windows: Download from https://www.sqlite.org/download.html
+
+b. How to Set Up the Backend and Frontend
+------------------------------------------
+
+**Backend Setup:**
+
+1. Navigate to the backend directory:
+   ```
+   cd backend
+   ```
+
+2. Install backend dependencies:
+   ```
+   npm install
+   ```
+
+3. Set up environment variables:
+   Create a `.env` file in the `backend` directory with the following variables:
+   ```
+   DATABASE_URL="file:./prisma/dev.db"
+   JWT_SECRET="your-secret-jwt-key-here"
+   QR_SECRET="your-secret-qr-key-here"
+   RESET_URL_BASE="http://localhost:5173/reset-password"
+   FRONTEND_URL="http://localhost:5173"
+   PORT=8000
+   SMTP_HOST="smtp.example.com"
+   SMTP_PORT=587
+   SMTP_USER="your-email@example.com"
+   SMTP_PASS="your-email-password"
+   ```
+   
+   Note: Replace the placeholder values with your actual configuration:
+   - `JWT_SECRET` and `QR_SECRET`: Use strong, random strings for security
+   - `RESET_URL_BASE`: The base URL where password reset links will point
+   - `FRONTEND_URL`: The URL where your frontend will be hosted
+   - `PORT`: The port number for the backend server (default: 8000)
+   - SMTP settings: Configure with your email service provider credentials for password reset functionality
+
+4. Initialize the database:
+   ```
+   npx prisma migrate deploy
+   ```
+   Or for development:
+   ```
+   npx prisma migrate dev
+   ```
+
+5. (Optional) Seed the database with sample data:
+   ```
+   node prisma/seed.js
+   ```
+
+6. (Optional) Create a superuser account:
+   ```
+   npm run createsuperuser <utorid> <email> <password>
+   ```
+   Example:
+   ```
+   npm run createsuperuser admin admin@example.com AdminPass123!
+   ```
+
+7. Start the backend server:
+   - For development (with auto-reload):
+     ```
+     npm run dev
+     ```
+   - For production:
+     ```
+     npm start
+     ```
+   
+   The backend server will run on port 8000 by default (or the port specified in the PORT environment variable).
+
+**Frontend Setup:**
+
+1. Navigate to the frontend directory:
+   ```
+   cd frontend
+   ```
+
+2. Install frontend dependencies:
+   ```
+   npm install
+   ```
+
+3. Set up environment variables:
+   Create a `.env` file in the `frontend` directory with the following variable:
+   ```
+   VITE_BACKEND_URL="http://localhost:8000"
+   ```
+   
+   Note: For production, set this to your deployed backend URL (e.g., `https://api.yourdomain.com`)
+
+4. Start the frontend development server:
+   ```
+   npm run dev
+   ```
+   
+   The frontend will typically run on port 5173 (Vite default).
+
+5. Build for production:
+   ```
+   npm run build
+   ```
+   
+   This creates an optimized production build in the `dist` directory.
+
+**Backend Dependencies:**
+- @prisma/client: Database ORM client
+- @prisma/studio: Database management UI
+- bcrypt: Password hashing
+- cors: Cross-Origin Resource Sharing middleware
+- dotenv: Environment variable management
+- express: Web framework
+- express-jwt: JWT authentication middleware
+- jsonwebtoken: JWT token generation and verification
+- multer: File upload handling
+- nodemailer: Email sending service
+- prisma: Database ORM
+- sqlite3: SQLite database driver
+- uuid: UUID generation
+- zod: Schema validation
+
+**Frontend Dependencies:**
+- react: React library
+- react-dom: React DOM rendering
+- react-router-dom: Client-side routing
+- qrcode.react: QR code generation
+- vite: Build tool and development server
+
+c. Information on How to Deploy Your Website
+---------------------------------------------
+
+**Deployment Environment:**
+The website can be deployed on a machine running Ubuntu 20.04 or later (or similar Linux distribution). The backend server can run on the same (virtual) machine as the web server for the frontend, which is preferred for simplicity.
+
+**Backend Deployment:**
+
+1. Ensure Node.js and npm are installed on the server.
+
+2. Copy the backend directory to the server.
+
+3. Install dependencies:
+   ```
+   cd backend
+   npm install --production
+   ```
+
+4. Set up the `.env` file with production values:
+   - Update `DATABASE_URL` to point to your production database location
+   - Set strong, unique values for `JWT_SECRET` and `QR_SECRET`
+   - Configure `FRONTEND_URL` to your production frontend URL
+   - Set `RESET_URL_BASE` to your production password reset URL
+   - Configure SMTP settings with your production email service
+   - Set `PORT` to your desired port (or use environment variable)
+
+5. Run database migrations:
+   ```
+   npx prisma migrate deploy
+   ```
+
+6. Start the backend server:
+   - Using PM2 (recommended for production):
+     ```
+     npm install -g pm2
+     pm2 start src/index.js --name cssu-backend
+     pm2 save
+     pm2 startup
+     ```
+   - Or using systemd service
+   - Or directly: `npm start`
+
+7. Configure a reverse proxy (e.g., Nginx) to forward requests to the backend:
+   ```
+   server {
+       listen 80;
+       server_name api.yourdomain.com;
+       
+       location / {
+           proxy_pass http://localhost:8000;
+           proxy_http_version 1.1;
+           proxy_set_header Upgrade $http_upgrade;
+           proxy_set_header Connection 'upgrade';
+           proxy_set_header Host $host;
+           proxy_cache_bypass $http_upgrade;
+       }
+   }
+   ```
+
+**Frontend Deployment:**
+
+1. Ensure Node.js and npm are installed on the server.
+
+2. Copy the frontend directory to the server.
+
+3. Install dependencies:
+   ```
+   cd frontend
+   npm install
+   ```
+
+4. Set up the `.env` file with production values:
+   ```
+   VITE_BACKEND_URL="https://api.yourdomain.com"
+   ```
+
+5. Build the frontend:
+   ```
+   npm run build
+   ```
+
+6. The built files will be in the `dist` directory. Serve these files using:
+   - **Nginx** (recommended):
+     ```
+     server {
+         listen 80;
+         server_name yourdomain.com;
+         root /path/to/frontend/dist;
+         index index.html;
+         
+         location / {
+             try_files $uri $uri/ /index.html;
+         }
+     }
+     ```
+   - **Apache**: Configure DocumentRoot to point to the `dist` directory
+   - **Node.js static server**: Use packages like `serve` or `express-static`
+
+7. For HTTPS, configure SSL certificates (e.g., using Let's Encrypt with Certbot).
+
+**Additional Deployment Notes:**
+
+- Ensure the backend server is accessible from the frontend domain (CORS configuration)
+- Set up proper firewall rules to allow traffic on ports 80, 443, and your backend port
+- Configure automatic restarts for the backend service (PM2 or systemd)
+- Set up log rotation for application logs
+- Consider using a process manager like PM2 for the backend
+- For production, use a proper database backup strategy
+- Ensure file upload directories (e.g., `backend/uploads/avatars`) have proper permissions
+
+**Note:** You do not have to share credentials for the hosting space, but you should outline the environment (e.g., a machine running Ubuntu 20.04).
